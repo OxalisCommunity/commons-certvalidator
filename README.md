@@ -1,3 +1,6 @@
+### ALERT
+This implementation is based on Original version from  felleslosninger's  efm-certvalidator/ commons-certvalidator-2.2.1 (https://github.com/felleslosninger/efm-certvalidator)
+
 # Certificate validator for X.509 certificates
 
 [![Build Status](https://travis-ci.org/difi/certvalidator.svg?branch=master)](https://travis-ci.org/difi/certvalidator)
