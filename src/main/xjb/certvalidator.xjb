@@ -4,12 +4,12 @@
                jaxb:version="2.0">
     <jaxb:bindings schemaLocation="../xsd/certvalidator.xsd">
         <jaxb:schemaBindings>
-            <jaxb:package name="no.difi.certvalidator.jaxb"/>
+            <jaxb:package name="network.oxalis.commons.certvalidator.jaxb"/>
         </jaxb:schemaBindings>
     </jaxb:bindings>
     <jaxb:bindings schemaLocation="../xsd/xmldsig-core-schema.xsd">
         <jaxb:schemaBindings>
-            <jaxb:package name="no.difi.certvalidator.jaxb.xmldsig"/>
+            <jaxb:package name="network.oxalis.commons.certvalidator.jaxb.xmldsig"/>
         </jaxb:schemaBindings>
     </jaxb:bindings>
 </jaxb:bindings>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-           targetNamespace="http://difi.no/xsd/certvalidator/1.0" xmlns="http://difi.no/xsd/certvalidator/1.0"
+           targetNamespace="http://oxalis.network/xsd/certvalidator/1.0" xmlns="http://oxalis.network/xsd/certvalidator/1.0"
            xmlns:xmldsig="http://www.w3.org/2000/09/xmldsig#">
 
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>

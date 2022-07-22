@@ -1,4 +1,4 @@
-<ValidatorRecipe xmlns="http://difi.no/xsd/certvalidator/1.0" name="virksert-test" version="2016-10-17">
+<ValidatorRecipe xmlns="http://oxalis.network/xsd/certvalidator/1.0" name="virksert-test" version="2016-10-17">
     <Validator>
         <Expiration millis="0"/>
         <Signing type="PUBLIC_SIGNED"/>
@@ -21,7 +21,7 @@
         </Chain>
         <Try>
             <RuleReference>OrganizationValidator</RuleReference>
-            <Class>no.difi.certvalidator.extra.NorwegianOrganizationNumberRule</Class>
+            <Class>network.oxalis.commons.certvalidator.extra.NorwegianOrganizationNumberRule</Class>
         </Try>
         <CRL/>
         <OCSP>

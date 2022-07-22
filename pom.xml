@@ -1,33 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2017-2021 Norwegian Agency for Public Management and eGovernment (Difi)
+    Copyright (C) 2022-2023 Norstella Oxalis Network (www.oxalis.network)
+
+    Licensed under the EUPL, Version 1.1 or – as soon they
+    will be approved by the European Commission - subsequent
+    versions of the EUPL (the "Licence");
+
+    You may not use this work except in compliance with the Licence.
+
+    You may obtain a copy of the Licence at:
+
+    https://joinup.ec.europa.eu/community/eupl/og_page/eupl
+
+    Unless required by applicable law or agreed to in
+    writing, software distributed under the Licence is
+    distributed on an "AS IS" basis,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+    express or implied.
+    See the Licence for the specific language governing
+    permissions and limitations under the Licence.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.difi.commons</groupId>
+    <groupId>network.oxalis.commons</groupId>
     <artifactId>commons-certvalidator</artifactId>
     <packaging>jar</packaging>
     <version>2.2.2-SNAPSHOT</version>
 
-    <name>Certificate validator</name>
+    <name>Oxalis Certificate validator</name>
     <description>Rule engine for creation of certificate validator.</description>
-    <url>https://github.com/difi/certvalidator</url>
+    <url>https://github.com/OxalisCommunity/commons-certvalidator</url>
 
     <scm>
         <tag>HEAD</tag>
-        <url>https://github.com/difi/certvalidator</url>
-        <connection>scm:git:https://github.com/difi/certvalidator.git</connection>
-        <developerConnection>scm:git:git@github.com:difi/certvalidator.git</developerConnection>
+        <url>https://github.com/OxalisCommunity/commons-certvalidator</url>
+        <connection>scm:git:git@github.com:OxalisCommunity/commons-certvalidator.git</connection>
+        <developerConnection>scm:git:git@github.com:OxalisCommunity/commons-certvalidator.git</developerConnection>
     </scm>
 
     <issueManagement>
-        <url>https://github.com/difi/certvalidator/issues</url>
+        <url>https://github.com/OxalisCommunity/commons-certvalidator/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
 
     <organization>
-        <name>Norwegian Agency for Public Management and eGovernment (Difi)</name>
-        <url>http://www.difi.no</url>
+        <name>NorStella</name>
+        <url>https://en.norstella.no/</url>
     </organization>
 
     <developers>
+        <developer>
+            <name>Arun Kumar</name>
+            <email>arun.kaundal@gmail.com</email>
+            <organization>Norstella</organization>
+            <roles>
+                <role>Oxalis Technical Expert</role>
+            </roles>
+        </developer>
         <developer>
             <name>Aslak Os</name>
             <email>aslak@rocketfarm.no</email>
@@ -96,7 +128,7 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcpkix-jdk15on</artifactId>
-            <version>1.58</version>
+            <version>1.70</version>
         </dependency>
 
         <!-- Testing -->
@@ -106,10 +138,11 @@
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
+        
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.21.0</version>
+            <version>2.28.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -125,14 +158,14 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>26.0-jre</version>
+            <version>31.1-jre</version>
         </dependency>
 
         <!-- OCSP -->
         <dependency>
-            <groupId>net.klakegg.pkix</groupId>
+            <groupId>network.oxalis.pkix</groupId>
             <artifactId>pkix-ocsp</artifactId>
-            <version>0.9.1</version>
+            <version>1.0.0-RC3</version>
         </dependency>
 
         <!-- META-INF/services -->
@@ -283,20 +316,20 @@
                         <version>2.4</version>
                         <executions>
                             <execution>
-                                <id>package-sources</id>
+                                <id>attach-sources</id>
                                 <goals>
-                                    <goal>jar</goal>
+                                    <goal>jar-no-fork</goal>
                                 </goals>
                             </execution>
                         </executions>
                     </plugin>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.3</version>
+                        <version>3.2.0</version>
                         <executions>
                             <execution>
-                                <id>package-javadoc</id>
-                                <phase>package</phase>
+                                <id>attach-javadocs</id>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
@@ -304,12 +337,22 @@
                         </executions>
                         <configuration>
                             <encoding>${java.encoding}</encoding>
+                            <additionalOptions>
+                                <additionalOption>-Xdoclint:none</additionalOption>
+                            </additionalOptions>
                         </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>1.6</version>
+                        <configuration>
+                            <!-- Prevent gpg from using pinentry programs -->
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>

@@ -1,4 +1,4 @@
-<ValidatorRecipe xmlns="http://difi.no/xsd/certvalidator/1.0" name="virksert-norway-test" version="2017-07-17">
+<ValidatorRecipe xmlns="http://oxalis.network/xsd/certvalidator/1.0" name="virksert-norway-test" version="2017-07-17">
 
     <!-- Rules for Commfides are degraded to make issued certificates pass. -->
 
@@ -33,7 +33,7 @@
                 <Policy>2.16.578.1.1.1.1.100</Policy>
             </Chain>
         </Junction>
-        <Class>no.difi.certvalidator.extra.NorwegianOrganizationNumberRule</Class>
+        <Class>network.oxalis.commons.certvalidator.extra.NorwegianOrganizationNumberRule</Class>
         <CRL/>
         <Junction type="OR">
             <PrincipleName field="O" principal="ISSUER">

@@ -1,6 +1,3 @@
-### ALERT
-This implementation is based on Original version from  felleslosninger's  efm-certvalidator/ commons-certvalidator-2.2.1 (https://github.com/felleslosninger/efm-certvalidator)
-
 # Certificate validator for X.509 certificates
 
 [![Build Status](https://travis-ci.org/difi/certvalidator.svg?branch=master)](https://travis-ci.org/difi/certvalidator)
@@ -18,9 +15,9 @@ Include dependency in your pom.xml:
 
 ```xml
 <dependency>
-    <groupId>no.difi.commons</groupId>
+    <groupId>network.oxalis.commons</groupId>
     <artifactId>commons-certvalidator</artifactId>
-    <version>2.1.1</version>
+    <version>3.0.0</version>
 </dependency>
 ```
 
@@ -91,3 +88,8 @@ Validators may not only be used to judge a given certificate when in situation t
 ## Creating new rules
 
 All new validation rules must implement the very simple ```ValidatorRule``` interface to be included in a chain of rules.
+
+
+---
+### Note
+This implementation is based on Original version from felleslosninger's efm-certvalidator/commons-certvalidator-2.2.1 (https://github.com/felleslosninger/efm-certvalidator)
