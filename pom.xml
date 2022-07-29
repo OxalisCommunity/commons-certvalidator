@@ -165,7 +165,7 @@
         <dependency>
             <groupId>network.oxalis.pkix</groupId>
             <artifactId>pkix-ocsp</artifactId>
-            <version>1.0.0-RC3</version>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- META-INF/services -->
