@@ -1,8 +1,8 @@
 # Certificate validator for X.509 certificates
 
-[![Build Status](https://travis-ci.org/difi/certvalidator.svg?branch=master)](https://travis-ci.org/difi/certvalidator)
-[![CodeCov](https://codecov.io/gh/difi/certvalidator/branch/master/graph/badge.svg)](https://codecov.io/gh/difi/certvalidator)
+[![commons-certvalidator Master Build](https://github.com/OxalisCommunity/commons-certvalidator/workflows/commons-certvalidator%20Master%20Build/badge.svg?branch=master)](https://github.com/OxalisCommunity/commons-certvalidator/actions?query=workflow%3A%22commons-certvalidator%20Master%20Build%22)
 [![Maven Central](https://img.shields.io/maven-central/v/network.oxalis.commons/commons-certvalidator.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22network.oxalis.commons%22%20AND%20a%3A%22commons-certvalidator%22)
+
 
 This validator is not a single validator, it is set of rules to build the certificate validator (using X.509 certificates) fitting the needs of your business case.
 
