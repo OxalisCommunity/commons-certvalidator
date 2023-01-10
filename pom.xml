@@ -28,7 +28,7 @@
     <groupId>network.oxalis.commons</groupId>
     <artifactId>commons-certvalidator</artifactId>
     <packaging>jar</packaging>
-    <version>3.1.1-SNAPSHOT</version>
+    <version>4.0.0-RC1-SNAPSHOT</version>
 
     <name>Oxalis Certificate validator</name>
     <description>Rule engine for creation of certificate validator.</description>
@@ -119,13 +119,17 @@
 
     <properties>
         <java.encoding>UTF-8</java.encoding>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <bouncycastle.version>1.70</bouncycastle.version>
-        <testng.version>7.5</testng.version>
-        <mockito-core.version>4.9.0</mockito-core.version>
+        <testng.version>7.7.1</testng.version>
+        <mockito-core.version>4.11.0</mockito-core.version>
         <joda-time.version>2.12.0</joda-time.version>
+        <jakarta.xml.bind-api-version>2.3.3</jakarta.xml.bind-api-version>
+        <jaxb-impl-version>2.3.3</jaxb-impl-version>
         <guava.version>31.1-jre</guava.version>
-        <pkix-ocsp.version>1.0.1</pkix-ocsp.version>
+        <pkix-ocsp.version>2.0.0-RC1-SNAPSHOT</pkix-ocsp.version>
         <metainf-services.version>1.9</metainf-services.version>
     </properties>
 
@@ -144,7 +148,7 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -160,11 +164,29 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${jakarta.xml.bind-api-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>${jaxb-impl-version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- Guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.code.findbugs</groupId>
+                    <artifactId>jsr305</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- OCSP -->
@@ -208,22 +230,42 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
+
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.6</version>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.14.0</version>
                 <executions>
                     <execution>
-                        <id>xjc</id>
                         <goals>
-                            <goal>xjc</goal>
+                            <goal>generate</goal>
                         </goals>
+                        <configuration>
+                            <encoding>${java.encoding}</encoding>
+                            <generateDirectory>target/generated-sources/xjc/</generateDirectory>
+                            <schemaDirectory>${basedir}/src/main/xsd</schemaDirectory>
+                            <schemaIncludes>
+                                <include>*.xsd</include>
+                            </schemaIncludes>
+                            <bindingDirectory>${basedir}/src/main/xjb</bindingDirectory>
+                            <bindingIncludes>
+                                <include>*.xjb</include>
+                            </bindingIncludes>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <target>2.1</target>
-                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                        <version>2.3.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.sun.xml.bind</groupId>
+                        <artifactId>jaxb-impl</artifactId>
+                        <version>2.3.3</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -380,6 +422,14 @@
             </build>
         </profile>
     </profiles>
+
+    <!-- Only for building from SNAPSHOT of other Oxalis repos. Remove it once released version of those Oxalis repos will be available -->
+    <repositories>
+        <repository>
+            <id>ossrh-snap</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
 
     <distributionManagement>
         <snapshotRepository>
