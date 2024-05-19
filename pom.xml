@@ -122,14 +122,14 @@
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <bouncycastle.version>1.70</bouncycastle.version>
+        <bouncycastle.version>1.78.1</bouncycastle.version>
         <testng.version>7.7.1</testng.version>
         <mockito-core.version>4.11.0</mockito-core.version>
         <joda-time.version>2.12.0</joda-time.version>
         <jakarta.xml.bind-api-version>2.3.3</jakarta.xml.bind-api-version>
         <jaxb-impl-version>2.3.3</jaxb-impl-version>
         <guava.version>31.1-jre</guava.version>
-        <pkix-ocsp.version>2.0.0</pkix-ocsp.version>
+        <pkix-ocsp.version>2.1.0</pkix-ocsp.version>
         <metainf-services.version>1.9</metainf-services.version>
     </properties>
 
@@ -137,7 +137,7 @@
         <!-- BouncyCastle -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
+            <artifactId>bcpkix-jdk18on</artifactId>
             <version>${bouncycastle.version}</version>
         </dependency>
 

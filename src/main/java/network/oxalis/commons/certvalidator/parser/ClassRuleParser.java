@@ -6,6 +6,7 @@ import network.oxalis.commons.certvalidator.jaxb.ClassType;
 import network.oxalis.commons.certvalidator.lang.ValidatorParsingException;
 import org.kohsuke.MetaInfServices;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 /**
@@ -24,8 +25,8 @@ public class ClassRuleParser implements ValidatorRuleParser {
         ClassType classType = (ClassType) o;
 
         try {
-            return (ValidatorRule) Class.forName(classType.getValue()).newInstance();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            return (ValidatorRule) Class.forName(classType.getValue()).getDeclaredConstructor().newInstance();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             throw new ValidatorParsingException(
                     String.format("Unable to load rule '%s'.", classType.getValue()), e);
         }
