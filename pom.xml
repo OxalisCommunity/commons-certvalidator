@@ -28,14 +28,14 @@
     <groupId>network.oxalis.commons</groupId>
     <artifactId>commons-certvalidator</artifactId>
     <packaging>jar</packaging>
-    <version>4.1.1-SNAPSHOT</version>
+    <version>4.2.0</version>
 
     <name>Oxalis Certificate validator</name>
     <description>Rule engine for creation of certificate validator.</description>
     <url>https://github.com/OxalisCommunity/commons-certvalidator</url>
 
     <scm>
-        <tag>HEAD</tag>
+        <tag>commons-certvalidator-4.2.0</tag>
         <url>https://github.com/OxalisCommunity/commons-certvalidator</url>
         <connection>scm:git:git@github.com:OxalisCommunity/commons-certvalidator.git</connection>
         <developerConnection>scm:git:git@github.com:OxalisCommunity/commons-certvalidator.git</developerConnection>
