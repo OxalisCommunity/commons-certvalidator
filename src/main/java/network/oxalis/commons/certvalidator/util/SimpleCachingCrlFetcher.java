@@ -5,7 +5,9 @@ import network.oxalis.commons.certvalidator.api.CrlCache;
 import network.oxalis.commons.certvalidator.api.CrlFetcher;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URLConnection;
 import java.security.cert.CRLException;
 import java.security.cert.X509CRL;
 
@@ -51,7 +53,11 @@ public class SimpleCachingCrlFetcher implements CrlFetcher {
 
     protected X509CRL httpDownload(String url) throws CertificateValidationException {
         try {
-            return CrlUtils.load(URI.create(url).toURL().openStream());
+            URLConnection urlConnection = URI.create(url).toURL().openConnection();
+            urlConnection.setConnectTimeout(30000);
+            urlConnection.setReadTimeout(30000);
+            InputStream inputStream = urlConnection.getInputStream();
+            return CrlUtils.load(inputStream);
         } catch (IOException | CRLException e) {
             throw new CertificateValidationException(String.format("Failed to download CRL '%s' (%s)", url, e.getMessage()), e);
         }
