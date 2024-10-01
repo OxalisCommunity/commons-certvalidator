@@ -11,8 +11,8 @@ import network.oxalis.pkix.ocsp.builder.Builder;
 import network.oxalis.commons.certvalidator.lang.ValidatorParsingException;
 import network.oxalis.commons.certvalidator.structure.Junction;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
 import javax.xml.transform.stream.StreamSource;
 import java.io.InputStream;
 import java.util.*;
