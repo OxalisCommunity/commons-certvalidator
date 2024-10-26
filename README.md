@@ -17,7 +17,7 @@ Include dependency in your pom.xml:
 <dependency>
     <groupId>network.oxalis.commons</groupId>
     <artifactId>commons-certvalidator</artifactId>
-    <version>4.2.0</version>
+    <version>4.3.0</version>
 </dependency>
 ```
 
