@@ -28,14 +28,14 @@
     <groupId>network.oxalis.commons</groupId>
     <artifactId>commons-certvalidator</artifactId>
     <packaging>jar</packaging>
-    <version>4.2.0</version>
+    <version>4.2.1</version>
 
     <name>Oxalis Certificate validator</name>
     <description>Rule engine for creation of certificate validator.</description>
     <url>https://github.com/OxalisCommunity/commons-certvalidator</url>
 
     <scm>
-        <tag>commons-certvalidator-4.2.0</tag>
+        <tag>commons-certvalidator-4.2.1</tag>
         <url>https://github.com/OxalisCommunity/commons-certvalidator</url>
         <connection>scm:git:git@github.com:OxalisCommunity/commons-certvalidator.git</connection>
         <developerConnection>scm:git:git@github.com:OxalisCommunity/commons-certvalidator.git</developerConnection>
@@ -128,8 +128,8 @@
         <joda-time.version>2.12.0</joda-time.version>
         <jakarta.xml.bind-api-version>2.3.3</jakarta.xml.bind-api-version>
         <jaxb-impl-version>2.3.3</jaxb-impl-version>
-        <guava.version>31.1-jre</guava.version>
-        <pkix-ocsp.version>2.2.0</pkix-ocsp.version>
+        <guava.version>33.3.1-jre</guava.version>
+        <pkix-ocsp.version>2.3.0</pkix-ocsp.version>
         <metainf-services.version>1.9</metainf-services.version>
     </properties>
 
