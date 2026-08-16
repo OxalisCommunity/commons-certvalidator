@@ -129,7 +129,7 @@
         <jakarta.xml.bind-api-version>4.0.2</jakarta.xml.bind-api-version>
         <jaxb-impl-version>4.0.5</jaxb-impl-version>
         <guava.version>33.4.8-jre</guava.version>
-        <pkix-ocsp.version>2.6.0</pkix-ocsp.version>
+        <pkix-ocsp.version>2.6.1</pkix-ocsp.version>
         <metainf-services.version>1.11</metainf-services.version>
     </properties>
 
