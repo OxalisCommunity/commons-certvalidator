@@ -20,7 +20,7 @@ public class NorwegianOrganizationNumberRuleTest extends X509TestGenerator {
     @Test
     public void shouldExtractOrgnumberFromCertBasedOnSerialnumber() throws Exception {
         final String ORGNR = "123456789";
-        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=None, L=None, C=None, serialNumber=" + ORGNR);
+        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=None, L=None, C=NO, serialNumber=" + ORGNR);
 
         new NorwegianOrganizationNumberRule(new PrincipalNameProvider<String>() {
             @Override
@@ -34,7 +34,7 @@ public class NorwegianOrganizationNumberRuleTest extends X509TestGenerator {
     @Test(expectedExceptions = FailedValidationException.class)
     public void invalidOrgnumberFromCertBasedOnSerialnumber() throws Exception {
         final String ORGNR = "123 456 789";
-        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=None, L=None, C=None, serialNumber=" + ORGNR);
+        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=None, L=None, C=NO, serialNumber=" + ORGNR);
 
         new NorwegianOrganizationNumberRule(new PrincipalNameProvider<String>() {
             @Override
@@ -48,7 +48,7 @@ public class NorwegianOrganizationNumberRuleTest extends X509TestGenerator {
     @Test
     public void shouldExtractOrgnumberFromCertBasedOnOrgNumberInOrganiation() throws Exception {
         final String ORGNR = "123456789";
-        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=organisasjon - " + ORGNR + ", L=None, C=None");
+        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=organisasjon - " + ORGNR + ", L=None, C=NO");
 
         new NorwegianOrganizationNumberRule(new PrincipalNameProvider<String>() {
             @Override
@@ -89,7 +89,7 @@ public class NorwegianOrganizationNumberRuleTest extends X509TestGenerator {
     @Test(expectedExceptions = FailedValidationException.class)
     public void notAcceptedOrgnumberFromCertBasedOnSerialnumber() throws Exception {
         final String ORGNR = "123456789";
-        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=None, L=None, C=None, serialNumber=" + ORGNR);
+        X509Certificate cert = createX509Certificate("CN=name, OU=None, O=None, L=None, C=NO, serialNumber=" + ORGNR);
 
         new NorwegianOrganizationNumberRule(new PrincipalNameProvider<String>() {
             @Override
