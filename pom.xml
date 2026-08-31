@@ -28,7 +28,7 @@
     <groupId>network.oxalis.commons</groupId>
     <artifactId>commons-certvalidator</artifactId>
     <packaging>jar</packaging>
-    <version>4.7.1-SNAPSHOT</version>
+    <version>4.7.3-SNAPSHOT</version>
 
     <name>Oxalis Certificate validator</name>
     <description>Rule engine for creation of certificate validator.</description>
